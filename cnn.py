@@ -11,6 +11,7 @@
 
 # Part 1 - Building the CNN
 
+#Hide the annoying deprecation warnings from python 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
 
@@ -22,6 +23,7 @@ from keras.layers import Flatten
 from keras.layers import Dense
 import os
 
+#Use this to check the devices available for your model to use
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
 
@@ -86,7 +88,7 @@ classifier.fit_generator(training_set,
 
 import numpy as np
 from keras.preprocessing  import image
-
+#
 test_image = image.load_img('Prediction/cat_or_dog_2.jpg', target_size= (64,64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(a = test_image, axis = 0)
